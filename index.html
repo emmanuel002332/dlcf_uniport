@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Hub</title>
 
-    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4facfe">
 
@@ -14,9 +13,9 @@
 <body>
 
 <header>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="menu-btn" onclick="toggleMenu()" role="button" aria-label="Open Menu">☰</div>
     <h2>Student Hub</h2>
-    <div class="theme-btn" onclick="toggleTheme()">🌙</div>
+    <div class="theme-btn" onclick="toggleTheme()" role="button" aria-label="Toggle Theme">🌙</div>
 </header>
 
 <nav id="sidebar">
@@ -35,7 +34,6 @@
 
     <button>Start Learning</button>
 
-    <!-- Install Button -->
     <button id="installBtn" style="display:none;">
         Install App 📲
     </button>
@@ -43,11 +41,14 @@
 
 <script src="script.js"></script>
 
-<!-- Service Worker -->
 <script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-}
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(reg => console.log("SW Registered!", reg))
+                .catch(err => console.log("SW Register Error:", err));
+        });
+    }
 </script>
 
 </body>
