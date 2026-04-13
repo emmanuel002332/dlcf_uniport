@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4facfe">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h2>DLCF UNIPORT U2025</h2>
+        <div class="theme-btn" onclick="toggleTheme()">🌙</div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Bible Study</a>
+        <a href="#">Study Resources</a>
+        <a href="#">Quiz</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Overlay -->
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Welcome 👋</h1>
+        <p>Helping students grow spiritually and academically</p>
+        <button id="installBtn" style="display:none;">
+    Install App 📲
+</button>
+        <button>Start Learning</button>
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Service Worker -->
+    <script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker Registered"));
+    }
+    </script>
+
+</body>
+</html>
