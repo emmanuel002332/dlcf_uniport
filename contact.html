@@ -1,0 +1,53 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Student Hub</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <div class="container">
+    <h1 style="text-align: center; margin-top: 40px;">Contact Me</h1>
+
+    <div class="card" style="margin-top: 20px;">
+        <h3>Send an Email ✉️</h3>
+        <p style="font-size: 0.9em; color: #cbd5e1; margin-bottom: 15px;">
+            I'll get back to you as soon as possible.
+        </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="hidden" name="access_key" value="f31b7e84-709d-46a7-b455-ccd2e5cfdd83">
+
+            <input type="text" name="name" placeholder="Full Name" required 
+                   style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #1e293b; color: white;">
+            
+            <input type="email" name="email" placeholder="Email Address" required 
+                   style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #1e293b; color: white;">
+
+            <textarea name="message" placeholder="Type your message here..." rows="5" required 
+                      style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #1e293b; color: white;"></textarea>
+
+            <button type="submit" class="btn" style="width: 100%;">Submit Email</button>
+        </form>
+    </div>
+
+    <div class="card" style="margin-top: 20px; text-align: center;">
+        <h3>Direct Chat 💬</h3>
+        <p style="font-size: 0.9em; color: #cbd5e1; margin-bottom: 20px;">
+            Want to chat right now? Message me on WhatsApp.
+        </p>
+        
+        <a href="https://wa.me/2349077624744" class="btn" style="text-decoration: none; display: inline-block; width: 80%;">
+            Chat on WhatsApp 📲
+        </a>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" style="color: #4facfe; text-decoration: none;">← Back to Home</a>
+    </div>
+    </div>
+     
+
+</body>
+</html>
