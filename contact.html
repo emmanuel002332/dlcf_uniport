@@ -6,51 +6,69 @@
     <title>Contact - Student Hub</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* This ensures inputs don't spill over the edges */
+        /* This ensures the page has that deep dark blue background */
+        body {
+            background-color: #0f172a;
+            color: white;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* Fixing the "Invisible" boxes */
+        .contact-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
         input, textarea {
             box-sizing: border-box; 
             outline: none;
-            transition: 0.3s;
             border: 1px solid transparent !important;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            background: #0f172a; /* Darker input background */
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
         }
-        /* A nice glow when you click to type */
+
         input:focus, textarea:focus {
             border: 1px solid #4facfe !important;
-            box-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1 style="text-align: center; margin-top: 40px; color: white;">Contact Me</h1>
+<div class="container" style="padding: 20px;">
+    <h1 style="text-align: center; margin-top: 40px; color: #4facfe; text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);">
+        Contact Me
+    </h1>
 
-    <div class="card" style="margin-top: 20px; padding: 25px; border-radius: 20px;">
-        <h3 style="margin-top: 0;">Send an Email ✉️</h3>
+    <div class="contact-card">
+        <h3 style="margin-top: 0; color: white;">Send an Email ✉️</h3>
         <p style="font-size: 0.9em; color: #cbd5e1; margin-bottom: 20px;">
             I'll get back to you as soon as possible.
         </p>
 
-        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column;">
             <input type="hidden" name="access_key" value="f31b7e84-709d-46a7-b455-ccd2e5cfdd83">
 
-            <input type="text" name="name" placeholder="Full Name" required 
-                   style="width: 100%; padding: 14px; border-radius: 12px; border: none; background: #1e293b; color: white; font-size: 16px;">
-            
-            <input type="email" name="email" placeholder="Email Address" required 
-                   style="width: 100%; padding: 14px; border-radius: 12px; border: none; background: #1e293b; color: white; font-size: 16px;">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea name="message" placeholder="Type your message here..." rows="5" required style="resize: none;"></textarea>
 
-            <textarea name="message" placeholder="Type your message here..." rows="5" required 
-                      style="width: 100%; padding: 14px; border-radius: 12px; border: none; background: #1e293b; color: white; font-size: 16px; resize: none;"></textarea>
-
-            <button type="submit" class="btn" style="width: 100%; padding: 15px; font-weight: bold; margin-top: 5px;">
+            <button type="submit" class="btn" style="width: 100%; padding: 15px; font-weight: bold; margin-top: 5px; cursor: pointer;">
                 Submit Email
             </button>
         </form>
     </div>
 
-    <div class="card" style="margin-top: 25px; text-align: center; padding: 25px; border-radius: 20px;">
-        <h3 style="margin-top: 0;">Direct Chat 💬</h3>
+    <div class="contact-card" style="text-align: center;">
+        <h3 style="margin-top: 0; color: white;">Direct Chat 💬</h3>
         <p style="font-size: 0.9em; color: #cbd5e1; margin-bottom: 20px;">
             Want to chat right now? Message me on WhatsApp.
         </p>
