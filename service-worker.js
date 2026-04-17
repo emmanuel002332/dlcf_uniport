@@ -1,47 +1,44 @@
-const CACHE_NAME = "student-hub-v1";
-
-const urlsToCache = [
-    "./",            // Changed to relative path for better compatibility
-    "./index.html",
-    "./style.css",
-    "./script.js",
-    "./manifest.json"
+const CACHE_NAME = 'student-hub-v1';
+const ASSETS_TO_CACHE = [
+  './',
+  './index.html',
+  './manifest.json',
+  // Add your CSS and JS files here, for example:
+  // './style.css',
+  // './script.js'
 ];
 
-// INSTALL: Force the new service worker to become active immediately
-self.addEventListener("install", (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            console.log("Caching assets...");
-            return cache.addAll(urlsToCache);
-        }).then(() => self.skipWaiting()) // Forces activation
-    );
+// 1. Install Event - Setting up the cache
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
+  );
+  self.skipWaiting();
 });
 
-// ACTIVATE: Clean up old caches and take control of the page
-self.addEventListener("activate", (event) => {
-    event.waitUntil(
-        caches.keys().then((keys) => {
-            return Promise.all(
-                keys.map((key) => {
-                    if (key !== CACHE_NAME) {
-                        return caches.delete(key);
-                    }
-                })
-            );
-        }).then(() => self.clients.claim()) // Takes control of open tabs immediately
-    );
-});
-
-// FETCH: Cache-First with a Network Fallback + Error Catching
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((res) => {
-            // Return cached resource, OR try to fetch from network
-            return res || fetch(event.request).catch(() => {
-                // Optional: If network fails and no cache, you could return an offline page here
-                console.log("Resource not found in cache or network.");
-            });
+// 2. Activate Event - Cleaning up old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
         })
-    );
+      );
+    })
+  );
+  return self.clients.claim();
+});
+
+// 3. Fetch Event - THIS IS REQUIRED FOR THE INSTALL BUTTON
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
