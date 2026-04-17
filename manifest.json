@@ -10,13 +10,13 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./Screenshot_20260403-095431_1-ezgif.com-jpg-to-png-converter.png",
+      "src": "./Screenshot_20260417-200651_1-ezgif.com-jpg-to-png-converter.png",
       "sizes": "192x192 256x256 384x384",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./Screenshot_20260403-095431_1-ezgif.com-jpg-to-png-converter.png",
+      "src": "./Screenshot_20260417-200651_1-ezgif.com-jpg-to-png-converter.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
