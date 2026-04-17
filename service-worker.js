@@ -2,10 +2,10 @@ const CACHE_NAME = 'U2025-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './contact.html', // Add this line!
   './manifest.json',
-  // Add your CSS and JS files here, for example:
-  // './style.css',
-  // './script.js'
+  './style.css',
+  // ...
 ];
 
 // 1. Install Event - Setting up the cache
