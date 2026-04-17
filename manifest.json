@@ -10,7 +10,7 @@
   "icons": [
     {
       "src": "./Screenshot_20260403-095431_1-ezgif.com-jpg-to-png-converter.png",
-      "sizes": "192x192",
+      "sizes": "192x192 256x256 384x384",
       "type": "image/png",
       "purpose": "any"
     },
@@ -21,7 +21,7 @@
       "purpose": "maskable"
     },
     {
-      "src": "./Screenshot_20260403-095431.jpg",
+      "src": "./Screenshot_20260326-122715_1-ezgif.com-jpg-to-png-converter.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
