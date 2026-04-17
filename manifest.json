@@ -1,7 +1,7 @@
 {
-  "id": "student-hub-pwa",
-  "name": "Student Hub",
-  "short_name": "StudentHub",
+  "id": "U2025-pwa",
+  "name": "U2025",
+  "short_name": "U2025",
   "description": "Helping students grow spiritually and academically.",
   "start_url": "./index.html",
   "display": "standalone",
