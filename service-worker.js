@@ -1,4 +1,4 @@
-const CACHE_NAME = 'student-hub-v1';
+const CACHE_NAME = 'U2025-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
