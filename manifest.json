@@ -9,21 +9,21 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://github.com/emmanuel002332/dlcf_uniport/blob/main/Screenshot_20260318-160621.jpg",
+      "src": "./Screenshot_20260318-160621.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://github.com/emmanuel002332/dlcf_uniport/blob/main/Screenshot_20260318-160621.jpg",
+      "src": "./Screenshot_20260318-160621.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "maskable"
     },
     {
-      "src": "https://github.com/emmanuel002332/dlcf_uniport/blob/main/Screenshot_20260403-095431.jpg",
+      "src": "./Screenshot_20260403-095431.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ]
