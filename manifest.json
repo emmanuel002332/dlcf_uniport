@@ -9,21 +9,21 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./Screenshot_20260318-160621.jpg",
+      "src": "./Screenshot_20260403-095431_1-ezgif.com-jpg-to-png-converter.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./Screenshot_20260318-160621.jpg",
+      "src": "./Screenshot_20260403-095431_1-ezgif.com-jpg-to-png-converter.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
       "src": "./Screenshot_20260403-095431.jpg",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
