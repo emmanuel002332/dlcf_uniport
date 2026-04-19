@@ -26,6 +26,51 @@
     <a href="contact.html">Contact</a>
 </nav>
 
+    <div class="card" style="
+    background: #1e293b; 
+    padding: 25px; 
+    border-radius: 20px; 
+    margin: 20px auto; 
+    max-width: 500px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;">
+
+    <h3 style="color: white; margin-top: 0;">Quick Google Search 🔍</h3>
+    <p style="font-size: 0.85em; color: #cbd5e1; margin-bottom: 20px;">
+        Find academic resources or answers instantly.
+    </p>
+
+    <form action="https://www.google.com/search" method="GET" target="_blank" style="display: flex; flex-direction: column; gap: 15px;">
+        
+        <input type="text" name="q" placeholder="Search for notes, topics..." required 
+            style="
+                width: 100%; 
+                padding: 14px; 
+                border-radius: 12px; 
+                border: 1px solid transparent; 
+                background: #0f172a; 
+                color: white; 
+                font-size: 16px; 
+                box-sizing: border-box;
+                outline: none;
+                transition: 0.3s;"
+            onfocus="this.style.border='1px solid #4facfe'" 
+            onblur="this.style.border='1px solid transparent'">
+
+        <button type="submit" class="btn" style="
+            width: 100%; 
+            padding: 15px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border: none;
+            border-radius: 12px;
+            color: white;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);">
+            Search Google
+        </button>
+    </form>
+    </div>
+
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <section class="hero">
