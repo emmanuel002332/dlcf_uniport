@@ -78,7 +78,7 @@ header {
 
 .hero {
     text-align: center;
-    height: calc(100vh - 70px);
+    height: calc(50vh - 35px);
     display: flex;
     flex-direction: column;
     justify-content: center;
