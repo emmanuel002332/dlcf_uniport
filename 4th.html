@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Outline</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  margin: 0;
+  background: rgb(20, 20, 30);
+  font-family: sans-serif; /* Added for cleaner look */
+}
+
+.header {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- THE "TOUCH/HOVER" EFFECT --- */
+section {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgb(30, 30, 40);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+section:hover {
+  transform: translateY(-10px); /* Moves it up */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow when lifted */
+}
+
+/* --- THE "FADE IN" ANIMATION --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to text elements */
+.h2, ol, p {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* --- REST OF YOUR CODE --- */
+.Course {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.h2 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: bold;
+}
+
+.footer {
+  background: rgb(10,0, 20);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  padding: 30px;
+  margin-top: 20px; /* Added spacing */
+}
+
+.ol {
+  font-weight: bold;
+}
+
+.home {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+input{
+  height: 40px;
+  width: 100%;
+  align-content: center;
+  border-radius: 25px;
+  border-color: linear-gradient(135deg, #4f46e5, #3b82f6);
+  font-size: 17px;
+}
+.ul{
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+  <h1>SECOND SEMESTER COURSE OUTLINE</h1>
+  </header>
+  <section>
+    <h2 class="h2">COURSE OUTLINE FOR CHM 131.2 (GENERAL CHEMISTRY)</h2>
+    <ul class="ul">
+      <li>Rates of chemical reactions<br><br>
+      1. Rate Law and orders of reaction<br><br>
+2. Techniques for the Determination of Reaction order<br><br>
+3. Effect of temperature on reaction rates<br><br>
+4. Theory of reaction rates<br><br>
+5. Reaction mechanisms</li><br>
+      <li>Chemical Equilibrium and Equilibrium Processes<br><br>
+      </li>
+      <li>Acids and Bases<br><br>
+1. The Arrhenius Theory<br><br>
+2. The Bronsted-Lowry Theory<br><br>
+3. The Lewis Theory<br><br>
+4. Strength of Acids and Bases <br><br>
+5. The pH and pOH Scales<br><br>
+6. Solutions and Salts of Acids and Bases <br><br>
+7. Buffer Solutions </li><br><br>
+      <li>Electrochemistry<br><br>
+1. Electrochemical Cells<br><br>
+2. Electrolytic Cells<br><br>
+3. Faraday's Law of Electrolysis<br><br>
+4.  Application of Electrolytic Cells<br><br> 
+5.  Voltaic Cells<br><br>
+6.  Standard Electrode Potentials<br><br>
+7.  The Standard Cell Potential and Standard Free Energy <br><br>
+8.  Primary Cells <br><br>
+9. Secondary Cells <br><br>
+10. Corrosion </li><br><br>
+      <li>Radioactivity and Nuclear Chemistry</li>
+    </ul>
+    <a href="index.html"><button class="home">HOME</button></a>
+  </section>
+  <footer class="footer">
+    <p>Study for your exam</p>
+    <p>GOOD LUCK</p>
+  </footer>
+</body>
