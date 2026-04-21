@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Outline</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  margin: 0;
+  background: rgb(20, 20, 30);
+  font-family: sans-serif; /* Added for cleaner look */
+}
+
+.header {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- THE "TOUCH/HOVER" EFFECT --- */
+section {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgb(30, 30, 40);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+section:hover {
+  transform: translateY(-10px); /* Moves it up */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow when lifted */
+}
+
+/* --- THE "FADE IN" ANIMATION --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to text elements */
+.h2, ol, p {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* --- REST OF YOUR CODE --- */
+.Course {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.h2 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: bold;
+}
+
+.footer {
+  background: rgb(10,0, 20);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  padding: 30px;
+  margin-top: 20px; /* Added spacing */
+}
+
+.ol {
+  font-weight: bold;
+}
+
+.home {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+input{
+  height: 40px;
+  width: 100%;
+  align-content: center;
+  border-radius: 25px;
+  border-color: linear-gradient(135deg, #4f46e5, #3b82f6);
+  font-size: 17px;
+}
+.ul{
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+  <h1>SECOND SEMESTER COURSE OUTLINE</h1>
+  </header>
+  <section>
+    <h2 class="h2">COURSE OUTLINE FOR PHYSICS 112.2 (INTRODUCTION TO ELECTRICITY AND MAGNETISM)</h2>
+    <ul class="ul">
+      <li>Electric Charge, Potential and Field</li>
+      <li>Gauss's Law and Electric Potential </li>
+      <li>Capacitance and Dielectrics</li>
+      <li>Current electricity</li>
+      <li>DC Circuits and Instruments</li>
+      <li>Magnetism</li>
+      <li>Sources of Magnetic Field</li>
+      <li>Electromagnetic Induction</li>
+      <li>Inductance and energy storage in Magnetic Fields </li>
+      <li>Magnetic Media</li>
+      <li>Paramagnetism and Diamagnetism </li>
+      <li>Alternating Current Circuit</li>
+      <li>Maxwell's Equations, Electromagnetic Waves and Particle Duality </li>
+    </ul>
+    <a href="index.html"><button class="home">HOME</button></a>
+  </section>
+  <footer class="footer">
+    <p>Study for your exam</p>
+    <p>GOOD LUCK</p>
+  </footer>
+</body>
