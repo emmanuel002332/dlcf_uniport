@@ -1,44 +1,65 @@
-const CACHE_NAME = 'U2025-v1';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'U2025-v1';  // ← Increment version to force update
+const ASSETS = [
   './',
   './index.html',
-  './contact.html', // Add this line!
-  './manifest.json',
+  './contact.html',      // ← new offline fallback
   './style.css',
-  // ...
+  './manifest.json',
+  './bible_study.html',
+  './study_resources.html',
+  './quiz.html',
+  './offline.html',
 ];
 
-// 1. Install Event - Setting up the cache
+// Install: cache all critical assets
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
   self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
 });
 
-// 2. Activate Event - Cleaning up old caches
+// Activate: clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      );
+    caches.keys().then((keys) => {
+      return Promise.all(keys.map(key => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      }));
     })
   );
-  return self.clients.claim();
+  self.clients.claim(); // Take control of all open pages immediately
 });
 
-// 3. Fetch Event - THIS IS REQUIRED FOR THE INSTALL BUTTON
+// Fetch: network-first for HTML, cache-first for everything else
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
+  const request = event.request;
+  const url = new URL(request.url);
+
+  // For HTML pages (including navigations) – try network, fallback to cache, then offline.html
+  if (request.mode === 'navigate' || (request.destination === 'document')) {
+    event.respondWith(
+      fetch(request)
+        .then(async (networkResponse) => {
+          // Cache the fresh HTML for offline use
+          const cache = await caches.open(CACHE_NAME);
+          cache.put(request, networkResponse.clone());
+          return networkResponse;
+        })
+        .catch(async () => {
+          // Network failed – try cache
+          const cachedResponse = await caches.match(request);
+          if (cachedResponse) return cachedResponse;
+          // No cache – show offline page
+          return caches.match('./offline.html');
+        })
+    );
+  } else {
+    // For images, CSS, JS, etc. – cache-first (fast, works offline)
+    event.respondWith(
+      caches.match(request)
+        .then((cachedResponse) => cachedResponse || fetch(request))
+        .catch(() => caches.match('./offline.html')) // fallback for assets
+    );
+  }
 });
