@@ -9,6 +9,13 @@ const ASSETS = [
   './study_resources.html',
   './quiz.html',
   './offline.html',
+  './course_outline.html',
+  './1st.html',
+  './2nd.html',
+  './3rd.html',
+  './4th.html',
+  './5th.html',
+  './6th.hrml',
 ];
 
 // Install: cache all critical assets
