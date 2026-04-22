@@ -1,21 +1,22 @@
-const CACHE_NAME = 'U2025-v1';  // ← Increment version to force update
+const CACHE_NAME = 'U2025-v2';  // ← Increment version to force update
 const ASSETS = [
   './',
   './index.html',
-  './contact.html',      // ← new offline fallback
+  './offline.html',
   './style.css',
   './manifest.json',
-  './bible_study.html',
-  './study_resources.html',
-  './quiz.html',
-  './offline.html',
-  './course_outline.html',
   './1st.html',
   './2nd.html',
   './3rd.html',
   './4th.html',
   './5th.html',
-  './6th.hrml',
+  './6th.html'
+'./quiz.html',
+'./study_resources.html',
+'./bible_study.html',
+'./contact.html',
+'./course_outline.html',
+
 ];
 
 // Install: cache all critical assets
