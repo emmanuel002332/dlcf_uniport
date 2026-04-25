@@ -3,7 +3,6 @@ function toggleMenu() {
     let sidebar = document.getElementById("sidebar");
     let overlay = document.getElementById("overlay");
 
-    // Fix: We check the class or computed style instead of just .style.left
     if (sidebar.classList.contains("active")) {
         sidebar.style.left = "-260px";
         overlay.style.display = "none";
@@ -29,32 +28,42 @@ function toggleTheme() {
     }
 }
 
+// ✅ Moved outside — so it's always ready
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    let installBtn = document.getElementById("installBtn");
+    if (installBtn) installBtn.style.display = "inline-block";
+});
+
 // PERSIST THEME ON LOAD
 window.addEventListener("DOMContentLoaded", () => {
     let savedTheme = localStorage.getItem("theme");
     let btn = document.querySelector(".theme-btn");
 
+    // ✅ Always set the button emoji
     if (savedTheme === "dark") {
         document.body.classList.add("dark");
-        if(btn) btn.textContent = "☀️";
+        if (btn) btn.textContent = "☀️";
+    } else {
+        if (btn) btn.textContent = "🌙";
     }
 
-    // ===== PWA INSTALL BUTTON LOGIC =====
-    let deferredPrompt;
+    // PWA INSTALL BUTTON
     let installBtn = document.getElementById("installBtn");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        if (installBtn) installBtn.style.display = "inline-block";
-    });
 
     if (installBtn) {
         installBtn.addEventListener("click", () => {
             installBtn.style.display = "none";
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(() => {
+                // ✅ Now checks what the user chose
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome !== "accepted") {
+                        installBtn.style.display = "inline-block";
+                    }
                     deferredPrompt = null;
                 });
             }
