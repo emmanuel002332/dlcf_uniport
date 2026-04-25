@@ -1,4 +1,5 @@
-const CACHE_NAME = 'U2025-v2';  // ← Increment version to force update
+const CACHE_NAME = 'U2025-v2';
+
 const ASSETS = [
   './',
   './index.html',
@@ -10,13 +11,15 @@ const ASSETS = [
   './3rd.html',
   './4th.html',
   './5th.html',
-  './6th.html'
-'./quiz.html',
-'./study_resources.html',
-'./bible_study.html',
-'./contact.html',
-'./course_outline.html',
-
+  './6th.html',       // ✅ comma added
+  './quiz.html',
+  './study_resources.html',
+  './bible_study.html',
+  './contact.html',
+  './course_outline.html',
+  // ✅ Add your icon paths here
+  // './icons/icon-192.png',
+  // './icons/icon-512.png',
 ];
 
 // Install: cache all critical assets
@@ -36,38 +39,37 @@ self.addEventListener('activate', (event) => {
       }));
     })
   );
-  self.clients.claim(); // Take control of all open pages immediately
+  self.clients.claim();
 });
 
 // Fetch: network-first for HTML, cache-first for everything else
 self.addEventListener('fetch', (event) => {
   const request = event.request;
-  const url = new URL(request.url);
 
-  // For HTML pages (including navigations) – try network, fallback to cache, then offline.html
-  if (request.mode === 'navigate' || (request.destination === 'document')) {
+  // HTML pages — try network first, fall back to cache, then offline.html
+  if (request.mode === 'navigate' || request.destination === 'document') {
     event.respondWith(
       fetch(request)
         .then(async (networkResponse) => {
-          // Cache the fresh HTML for offline use
           const cache = await caches.open(CACHE_NAME);
           cache.put(request, networkResponse.clone());
           return networkResponse;
         })
         .catch(async () => {
-          // Network failed – try cache
           const cachedResponse = await caches.match(request);
           if (cachedResponse) return cachedResponse;
-          // No cache – show offline page
-          return caches.match('./offline.html');
+          return caches.match('./offline.html'); // last resort
         })
     );
   } else {
-    // For images, CSS, JS, etc. – cache-first (fast, works offline)
+    // CSS, JS, images — serve from cache, fetch if not cached
     event.respondWith(
       caches.match(request)
         .then((cachedResponse) => cachedResponse || fetch(request))
-        .catch(() => caches.match('./offline.html')) // fallback for assets
+        .catch(() => {
+          // ✅ Return empty response instead of offline.html for assets
+          return new Response('', { status: 408, statusText: 'Offline' });
+        })
     );
   }
 });
